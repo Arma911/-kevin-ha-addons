@@ -1,0 +1,17 @@
+{
+  "name": "Claude Code",
+  "version": "1.0.0",
+  "slug": "claude_code",
+  "description": "Claude Code Terminal für Home Assistant Konfiguration",
+  "url": "https://github.com/Arma911/-kevin-ha-addons",
+  "arch": ["aarch64", "armv7"],
+  "startup": "application",
+  "boot": "auto",
+  "panel_icon": "mdi:robot",
+  "panel_title": "Claude Code",
+  "ingress": true,
+  "ingress_port": 7681,
+  "map": ["config:rw"],
+  "options": {},
+  "schema": {}
+}
