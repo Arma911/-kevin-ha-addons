@@ -5,6 +5,6 @@ export HOME=/data
 export CLAUDE_CONFIG_DIR=/data/.claude
 mkdir -p /data/.claude
 
-cd /homeassistant || { echo "FEHLER: /homeassistant nicht verfuegbar. Warte 5s und versuche es erneut..."; sleep 5; cd /homeassistant; }
+cd /config || { echo "FEHLER: /config nicht verfuegbar. Warte 5s und versuche es erneut..."; sleep 5; cd /config; }
 
 exec ttyd --port 7681 --writable bash
