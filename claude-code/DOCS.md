@@ -4,29 +4,26 @@
 
 1. Add-on starten und über die Sidebar öffnen
 2. Im Terminal eingeben:
-   ```
    claude login
-   ```
 3. Die angezeigte URL im Browser öffnen
 4. Mit dem bestehenden claude.ai-Konto anmelden
 5. Der Token wird dauerhaft in `/data/.claude` gespeichert und überlebt Add-on-Updates
 
 ## Alternative: Login mit API-Key
 
-Falls du einen API-Key aus der Anthropic Console nutzen möchtest:
+Falls du einen API-Key aus der Anthropic Con
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
 claude
-```
 
-## Verwendung
+Verwendung
 
-Das Terminal startet direkt im Verzeichnis `/homeassistant`.
-Alle HA-Konfigurationsdateien sind les- und schreibbar.
+Das Terminal startet direkt im Verzeichnis /homeassistant.
+Alle HA-Konfigurationsdateien sind les- und
 
-Beispiel: `claude "Zeige mir alle Automationen in packages/energie.yaml"`
+Beispiel: claude "Zeige mir alle Automatione
 
-## Hinweis zur Sicherheit
+Persistente Sitzung (tmux)
 
-Das Terminal ist nur über das Home Assistant Dashboard erreichbar (HA-Login erforderlich).
-Öffne Port 7681 auf dem Raspberry Pi **niemals** direkt im Router nach außen.
+Das Terminal läuft in einer tmux-Session nam
+vom Browser-Tab im Hintergrund weiterläuft:
