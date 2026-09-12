@@ -5,10 +5,10 @@ export HOME=/data
 export CLAUDE_CONFIG_DIR=/data/.claude
 mkdir -p /data/.claude
 
-# Nach einem kompletten HA/Supervisor-Neustart kann /homeassistant erst mit
-# Verzoegerung gemountet werden. Bis zu 2 Minuten in 5s-Schritten abwarten,
-# statt (wie vorher) nach einem einzigen Fehlversuch abzustuerzen.
-WORKDIR=/homeassistant
+# Der echte HA-Konfigurationsordner wird bei diesem Add-on-Mapping ("config:rw")
+# unter /config eingehaengt, nicht unter /homeassistant. Trotzdem kurz
+# abwarten falls der Mount nach einem Neustart erst verzoegert erscheint.
+WORKDIR=/config
 for i in $(seq 1 24); do
   [ -d "$WORKDIR" ] && break
   echo "Warte auf $WORKDIR (Versuch $i/24)..."
@@ -23,9 +23,9 @@ else
   cd "$WORKDIR"
 fi
 
-# ttyd startet sonst pro Verbindung eine frische Bash und killt sie beim
+# ttyd startet sonst pro Verbindung eine fri
 # Trennen (Tab schliessen). Ueber tmux (-A = attach falls Session "claude"
-# schon existiert, sonst neu anlegen) laeuft die Session im Hintergrund
+# schon existiert, sonst neu anlegen) laeuft
 # weiter, auch wenn niemand verbunden ist. Beendet wird sie nur durch
-# "exit" in der Bash (oder "tmux kill-session -t claude").
-exec ttyd --port 7681 --writable tmux new-session -A -s claude -c "$WORKDIR"
+# "exit" in der Bash (oder "tmux kill-sessio
+exec ttyd --port 7681 --writable tmux new-session -A -s claude -c "$WORKDIR" 
